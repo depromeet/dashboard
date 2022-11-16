@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  influxdb:
+    image: bitnami/influxdb:latest
+    container_name: influxdb
+    volumes:
+      - './influxdb:/var/lib/influxdb2'
+    environment:
+      - INFLUXDB_ADMIN_USER_PASSWORD=changeme
+      - INFLUXDB_ADMIN_USER_TOKEN=admintokenchangeme
+      - INFLUXDB_USER_BUCKET=gather
+      - INFLUXDB_USER=admin
+      - INFLUXDB_USER_PASSWORD=changeme
+    ports:
+      - 8086:8086 
+      - 8085:8088
+    restart: always
