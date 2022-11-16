@@ -13,6 +13,6 @@ services:
       - ${GF_INI_SOURCE}:/etc/grafana/grafana.ini
     ports:
       - "${GF_PORT_IN}:${GF_PORT_OUT}"
-    network_mode: ${GF_NETWORD_MODE}
+    network_mode: ${GF_NETWORK_MODE}
     restart: ${GF_RESTRART}
 
