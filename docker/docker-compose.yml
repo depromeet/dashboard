@@ -1,0 +1,18 @@
+version: "3"
+
+volumes:
+  dashboard:
+
+services:
+  grafana:
+    container_name: dashboard-grafana
+    image: grafana/grafana:${GF_VERSION}
+    user: ${GF_USER}
+    volumes:
+      - dashboard:/var/lib/grafana:rw
+      - ${GF_INI_SOURCE}:/etc/grafana/grafana.ini
+    ports:
+      - "${GF_PORT_IN}:${GF_PORT_OUT}"
+    network_mode: ${GF_NETWORK_MODE}
+    restart: ${GF_RESTRART}
+
